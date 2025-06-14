@@ -1,0 +1,21 @@
+name: ✨ Feature ou Melhoria
+description: Sugira uma melhoria para este projeto.
+labels: [enhancement]
+type: Feature
+title: '[✨] '
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: 'Descreva a melhoria necessária. Se sua solicitação de melhoria está relacionada a um problema, descreva o mesmo.'
+      description: 'Uma descrição clara e concisa da melhoria e problema relacionado.'
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 'Contexto adicional'
+      description: 'Adicione qualquer outro contexto ou capturas de tela sobre a solicitação de recurso aqui.'
+    validations:
+      required: false

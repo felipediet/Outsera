@@ -1,0 +1,44 @@
+name: 🐞 Bug
+description: Algo não está funcionando ou está instável! Nos avise!
+labels: [bug]
+type: Bug
+title: '[🐞] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ninguém gosta de BUG, mas obrigado nos informar sobre esse!
+
+  - type: textarea
+    id: description
+    attributes:
+      description: 'Uma descrição clara e concisa dos passos para reproduzir o problema e o que você esperava que acontecesse. Se você pretende enviar um PR para este problema, informe na descrição. Obrigado!'
+      label: Descreva o bug
+      placeholder: Estou fazendo ... O que espero é ... O que está acontecendo é ...
+    validations:
+      required: true
+
+  - type: input
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Por favor, forneça o link do ambiente em que foi reproduzido o problema.
+      placeholder: URL do ambiente
+    validations:
+      required: true
+
+  - type: input
+    id: browser_info
+    attributes:
+      label: Informações do Navegador
+      description: Em qual navegador você reproduziu o problema?
+      placeholder: Chrome, Safari, Firefox, Edge
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Informações Adicionais
+    validations:
+      required: false

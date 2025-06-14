@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "aykutsarac.jsoncrack-vscode",
+        "cucumberopen.cucumber-official",
+        "alexkrechik.cucumberautocomplete",
+        "ms-azuretools.vscode-docker",
+        "deepakkamboj0121.vscode-playwright-test-snippets",
+        "nitayneeman.playwright-snippets",
+        "ms-playwright.playwright",
+        "deerawan.vscode-faker"
+    ]
+}

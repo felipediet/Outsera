@@ -1,0 +1,19 @@
+name:  🔨 Task
+description: Taask de trabalho que não seja um BUG ou uma MELHORIA
+labels: [task]
+type: Task
+title: '[🔨] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Task de trabalho que não seja um BUG ou uma MELHORIA
+
+  - type: textarea
+    id: description
+    attributes:
+      description: 'Uma descrição clara e concisa da task a ser executada'
+      label: Descreva a task
+      placeholder: A task a ser feita é...
+    validations:
+      required: true
