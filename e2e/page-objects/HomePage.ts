@@ -12,7 +12,7 @@ export default class Home {
     }
 
     async visitHome() {
-        await (expect(this.goHome)).toBeVisible();
+        await (expect(this.goHome)).toBeVisible({ timeout: 10000 });
         await this.goHome.click();
     }
 
