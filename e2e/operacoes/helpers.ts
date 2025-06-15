@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Client } from 'pg';
+import { Page } from 'playwright';
 
 
 /**
@@ -70,49 +70,6 @@ export async function formatarCpf(cpf: string): Promise<string> {
  **/
 export function formatarDataParaFormulario(data: Date): string {
     return data.toLocaleString('en-US', { day: 'numeric', month: 'numeric' , year: 'numeric' });
-}
-
-/**
- * Conecta ao banco de dados SQL usando uma connection string e executa um comando.
- * @param {string} connectionString - Informar a function connectionStringELHML() para conectar ao banco de dados.
- * @param {string} query - O comando SQL a ser executado.
- * @returns {Promise<any>} - O resultado da execução do comando SQL.
- */
-export async function executarComandoSQLComConnectionString(connectionString: string, query: string): Promise<any> {
-    try {
-        // Conecta ao banco de dados
-        const pool = await sql.connect(connectionString);
-        // Executa o comando SQL
-        const result = await pool.request().query(query);
-        // Fecha a conexão
-        await pool.close();
-        return result;
-    } catch (err) {
-        console.error('Erro ao executar comando SQL:', err);
-        throw err;
-    }
-}
-
-/**
- * Conecta ao banco de dados PostgreSQL usando uma connection string e executa um comando.
- * @param {string} connectionString - A connection string para conectar ao banco de dados.
- * @param {string} query - O comando SQL a ser executado.
- * @returns {Promise<any>} - O resultado da execução do comando SQL.
- */
-export async function database_ExecutarComandoPostgreSql(connectionString: string, query: string): Promise<any> {
-    const client = new Client({ connectionString });
-    try {
-        // Conecta ao banco de dados
-        await client.connect();
-        // Executa o comando SQL
-        const result = await client.query(query);
-        // Fecha a conexão
-        await client.end();
-        return result;
-    } catch (err) {
-        console.error('Erro ao executar comando SQL no PostgreSQL:', err);
-        throw err;
-    }
 }
 
 /**
