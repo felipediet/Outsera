@@ -12,8 +12,13 @@ export default class Home {
     }
 
     async visitHome() {
-        await (expect(this.goHome)).toBeVisible({ timeout: 10000 });
-        await this.goHome.click();
+        const upperMenu = this.page.locator('#navbarSupportedContent');
+        const homeMenu = upperMenu.getByTestId('nav-home')
+        await expect(upperMenu).toBeVisible();
+        await expect(homeMenu).toBeVisible();
+        await homeMenu.click();
+        // await (expect(this.goHome)).toBeVisible({ timeout: 10000 });
+        // await this.goHome.click();
     }
 
     async selectItemByText(text: string) {
