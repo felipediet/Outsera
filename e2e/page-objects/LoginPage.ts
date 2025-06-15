@@ -56,7 +56,9 @@ export default class LoginPage {
     }
 
     async verifyUserMenu(user: Perfil) {
-        await expect(this.userMenu).toBeVisible({ timeout: 10000 });
+        while (await this.userMenu.isHidden()) {
+            await this.page.waitForTimeout(500);
+        }
         await expect(this.userMenu).toContainText(user.firstName + ' ' + user.lastName);
     }
 

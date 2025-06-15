@@ -12,6 +12,7 @@ export default class Home {
     }
 
     async visitHome() {
+        await (expect(this.goHome)).toBeVisible();
         await this.goHome.click();
     }
 
