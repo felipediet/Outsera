@@ -14,7 +14,10 @@ export default class Home {
     async visitHome() {
         const upperMenu = this.page.locator('#navbarSupportedContent');
         const homeMenu = upperMenu.getByTestId('nav-home')
-        await expect(upperMenu).toBeVisible();
+            console.log(upperMenu);
+            console.log(homeMenu);
+            console.log(this.goHome);
+        await expect(upperMenu).toBeVisible({timeout: 30000});
         await expect(homeMenu).toBeVisible();
         await homeMenu.click();
         // await (expect(this.goHome)).toBeVisible({ timeout: 10000 });
