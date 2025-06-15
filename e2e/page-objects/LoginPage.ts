@@ -52,7 +52,12 @@ export default class LoginPage {
         await this.fieldEmail.fill(user.email);
         await this.filedPassword.fill('Ramones10@');
         await this.loginButton.click();
-        await expect(this.userMenu).toContainText(user.firstName + ' ' + user.lastName, { timeout: 10000 });
+        await expect(this.page).toHaveURL(/account/,{ timeout: 10000 });
+    }
+
+    async verifyUserMenu(user: Perfil) {
+        await expect(this.userMenu).toBeVisible({ timeout: 10000 });
+        await expect(this.userMenu).toContainText(user.firstName + ' ' + user.lastName);
     }
 
 }

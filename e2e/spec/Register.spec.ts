@@ -18,6 +18,7 @@ test.describe("Register", () => {
         await register.fillForm(newuser);
         await register.submitForm();
         await login.loginAfterRegister(newuser);
+        await login.verifyUserMenu(newuser);
     });
 
 });
