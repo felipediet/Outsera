@@ -22,7 +22,7 @@ Projeto de testes end-to-end (E2E) para a Outsera utilizando o framework [Playwr
    ```
 
 2. **Instale o Chocolatey (caso ainda não tenha)**
-   > Execute no PowerShell como Administrador:
+   -  Execute no PowerShell como Administrador:
    ```sh
    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
    ```
@@ -40,12 +40,7 @@ Projeto de testes end-to-end (E2E) para a Outsera utilizando o framework [Playwr
    npm install
    ```
 
-6. **Instale o Playwright e suas dependências**
-   ```sh
-   npx playwright install --with-deps
-   ```
-
-7. **Teste a instalação rodando**
+6. **Teste a instalação rodando**
    ```sh
    npx playwright test
    ```
@@ -98,14 +93,35 @@ Projeto de testes end-to-end (E2E) para a Outsera utilizando o framework [Playwr
 
 ## 📊 Relatórios
 
-- **Abrir relatório Allure**
-  ```sh
-  npm run report
-  ```
-
 - **Abrir relatório do Playwright**
   ```sh
   npx playwright show-report
+  ```
+
+
+- ##### Para utilizar o relatório do Allure, ele precisa ter o JAVA JDK instalado
+  ```sh
+  npx allure serve
+  ```
+
+- Após instalar rode o comando abaixo no powershell da sua maquina
+
+  ```sh
+  # Defina o caminho para o JDK
+  $javaHome = "C:\Program Files\Java\jdk-21"
+
+  # Configure a variável de ambiente JAVA_HOME
+  [System.Environment]::SetEnvironmentVariable("JAVA_HOME", $javaHome, [SystemEnvironmentVariableTarget]::Machine)
+
+  # Adicione JAVA_HOME\bin ao PATH
+  $path = [System.Environment]::GetEnvironmentVariable("Path", [SystemEnvironmentVariableTarget]::Machine)
+  $newPath = "$path;$javaHome\bin"
+  [System.Environment]::SetEnvironmentVariable("Path", $newPath, [SystemEnvironmentVariableTarget]::Machine)
+  ```
+
+- **Abrir relatório Allure**
+  ```sh
+  npm run report
   ```
 
 ---
