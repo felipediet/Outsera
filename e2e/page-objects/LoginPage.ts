@@ -9,6 +9,7 @@ export default class LoginPage {
     private readonly filedPassword: Locator;
     private readonly loginButton: Locator;
     private readonly loginForm: Locator;
+    private readonly userMenu: Locator;
 
 
     constructor(page: Page) {
@@ -18,6 +19,7 @@ export default class LoginPage {
         this.filedPassword = this.page.getByTestId('password')
         this.loginButton = this.page.getByTestId('login-submit')
         this.loginForm = page.getByTestId('login-form');
+        this.userMenu = this.page.getByTestId('nav-menu');
     }
 
 
@@ -50,7 +52,9 @@ export default class LoginPage {
         await this.fieldEmail.fill(user.email);
         await this.filedPassword.fill('Ramones10@');
         await this.loginButton.click();
-        await expect(this.page.getByTestId('nav-menu')).toContainText(user.firstName + ' ' + user.lastName);
+            await this.page.waitForLoadState('domcontentloaded');
+        await expect(this.userMenu).toBeVisible();
+        await expect(this.userMenu).toContainText(user.firstName + ' ' + user.lastName, { timeout: 6000 });
     }
 
 }

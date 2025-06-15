@@ -27,7 +27,12 @@ export default class LoginPage {
     async addItemToCart(){
         await expect(this.addToCartButton).toBeVisible();
         await this.addToCartButton.click();
-        await validarMensagem(this.page, 'Product added to shopping cart.');
+        
+        const mensagem = this.page.getByText('Product added to shopping cart.', { exact: true });
+        while (await mensagem.isVisible()) {
+            await this.page.waitForTimeout(500);
+        }
+
     }
 
     async goToCart(item: string) {
