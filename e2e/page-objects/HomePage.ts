@@ -1,5 +1,4 @@
 import { Locator, Page, expect } from '@playwright/test';
-import { validarMensagem } from '../operacoes/helpers';
 
 export default class Home {
     private readonly page: Page;
@@ -11,28 +10,33 @@ export default class Home {
         this.goHome = this.page.getByTestId('nav-home');
     }
 
+    /**
+     * Visita a página inicial.
+     */
     async visitHome() {
+        //TODO - Esse método no CI quebra SEMPRE, mas funciona localmente, pesquisar mais sobre isso.
+            console.log('TODO - Esse método no CI quebra SEMPRE, mas funciona localmente, pesquisar mais sobre isso.');
         const upperMenu = this.page.locator('#navbarSupportedContent');
         const homeMenu = upperMenu.getByTestId('nav-home')
-            console.log(upperMenu);
-            console.log(homeMenu);
-            console.log(this.goHome);
-        //await expect(upperMenu).toBeVisible({timeout: 30000});
-        await this.page.locator('#navbarSupportedContent').isVisible();
-        //await expect(homeMenu).toBeVisible();
-        await this.page.getByTestId('nav-home').isVisible();
-        //await homeMenu.click();
-        await this.page.getByTestId('nav-home').click();
-        // await (expect(this.goHome)).toBeVisible({ timeout: 10000 });
-        // await this.goHome.click();
+        await expect(upperMenu).toBeEnabled();
+        await expect(homeMenu).toBeEnabled();
+        await homeMenu.click();
     }
 
+    /**
+     * Seleciona um item pelo texto e clica nele.
+     * @param text - Texto do item a ser selecionado.
+     */
     async selectItemByText(text: string) {
         const item = this.page.getByText(text);
         await expect(item).toBeVisible();
         await item.click();
     }
 
+    /**
+     * Seleciona um item aleatório e clica nele.
+     * @param randomItem - Nome do item aleatório a ser selecionado.
+     */
     async selectRandomItemAndClick(randomItem: string): Promise<void> {
         const itens = this.page.getByTestId('product-name');
         const item = itens.getByText(randomItem, { exact: true });
