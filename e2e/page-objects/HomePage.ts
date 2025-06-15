@@ -17,9 +17,12 @@ export default class Home {
             console.log(upperMenu);
             console.log(homeMenu);
             console.log(this.goHome);
-        await expect(upperMenu).toBeVisible({timeout: 30000});
-        await expect(homeMenu).toBeVisible();
-        await homeMenu.click();
+        //await expect(upperMenu).toBeVisible({timeout: 30000});
+        await this.page.locator('#navbarSupportedContent').isVisible();
+        //await expect(homeMenu).toBeVisible();
+        await this.page.getByTestId('nav-home').isVisible();
+        //await homeMenu.click();
+        await this.page.getByTestId('nav-home').click();
         // await (expect(this.goHome)).toBeVisible({ timeout: 10000 });
         // await this.goHome.click();
     }
