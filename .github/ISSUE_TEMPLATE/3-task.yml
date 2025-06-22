@@ -1,5 +1,5 @@
 name:  🔨 Task
-description: Taask de trabalho que não seja um BUG ou uma MELHORIA
+description: Task de trabalho que não seja um BUG ou uma MELHORIA
 labels: [task]
 type: Task
 title: '[🔨] '

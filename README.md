@@ -125,10 +125,3 @@ Projeto de testes end-to-end (E2E) para a Outsera utilizando o framework [Playwr
   ```
 
 ---
-
-## ℹ️ Observações
-
-- Para rodar em ambiente de DEV, utilize as variáveis de ambiente conforme necessário.
-- Consulte a [documentação oficial do Playwright](https://playwright.dev/docs/intro) para mais detalhes e customizações.
-
----
